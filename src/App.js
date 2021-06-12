@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div className='app'>
       <Router>
-        <Route path='/' component={HomePage} />
-        <Route path='/weather/:location' component={ForcastPage} />
+        <Route exact path='/' component={HomePage} />
+        <Route path='/weather/location=:lat,:long' component={ForcastPage} />
       </Router>
     </div>
   );
