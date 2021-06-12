@@ -1,13 +1,57 @@
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* General application styling */
+.app {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
 }
 
-.todo-item-container {
-  display: flex;
-  flex-direction: row;
+.home-main {
+  padding: 125px 0;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imgs/cloud.jpg');
+}
+
+.home-search {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.home-text {
+  font-weight: 700;
+  font-size: xx-large;
+  margin: 20px auto;
+  color: white;
+}
+
+.home-results {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.result-container {
+  color: white;
+  height: 200px;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url('./imgs/temperature.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.result-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.result-content-text-title {
+  font-size: x-large;
+  font-weight: 700;
 }
