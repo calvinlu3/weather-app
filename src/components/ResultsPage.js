@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { SearchResults } from './SearchResults';
 
 const fetchLocationInfo = async (type, params) => {
   var geocodeData;
@@ -12,7 +14,7 @@ const fetchLocationInfo = async (type, params) => {
         break;
       case 'name':
         geocodeData = await axios.get(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${params}&limit=5&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          `http://api.openweathermap.org/geo/1.0/direct?q=${params}&limit=8&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         );
         break;
       default:
@@ -25,26 +27,27 @@ const fetchLocationInfo = async (type, params) => {
   return geocodeData;
 };
 
-export function Search({ searchCallback }) {
-  const [inputLocation, setInputLocation] = useState('');
+function ResultsPage() {
+  const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState('');
+  const { search } = useParams();
 
-  const getGeocodedLocation = () => {
-    if (inputLocation.length === 0) return;
+  useEffect(() => {
+    if (search.length === 0) return;
 
     var queryParams;
     var isZip = true;
 
-    if (inputLocation.match(/\d+/g)) {
-      var zipcodeSplitIndex = inputLocation.search(/[\s,]+/g);
-      queryParams = inputLocation;
+    if (search.match(/\d+/g)) {
+      var zipcodeSplitIndex = search.search(/[\s,]+/g);
+      queryParams = search;
       if (zipcodeSplitIndex !== -1) {
-        queryParams = inputLocation.slice(0, zipcodeSplitIndex);
-        queryParams += `,${inputLocation.slice(zipcodeSplitIndex + 1).trim()}`;
+        queryParams = search.slice(0, zipcodeSplitIndex);
+        queryParams += `,${search.slice(zipcodeSplitIndex + 1).trim()}`;
       }
     } else {
       isZip = false;
-      var searchParamList = inputLocation
+      var searchParamList = search
         .split(/,\s+/g)
         .map((e) => e.trim().replace(/\s/g, '+'));
       queryParams = searchParamList.join(',');
@@ -61,29 +64,22 @@ export function Search({ searchCallback }) {
     fetchLocationInfo(isZip ? 'zip' : 'name', queryParams).then(
       (geocodeData) => {
         geocodeData
-          ? searchCallback(isZip ? [geocodeData.data] : geocodeData.data)
+          ? setSearchResults(isZip ? [geocodeData.data] : geocodeData.data)
           : setSearchError('No search results');
       }
     );
-  };
+  }, []);
 
   return (
-    <div className='input-group mb-3'>
-      <input
-        type='text'
-        className='form-control form-control-lg'
-        placeholder='Enter city name or zipcode'
-        onChange={(e) => setInputLocation(e.target.value)}
-      />
-      <div className='input-group-append'>
-        <button
-          className='btn btn-light'
-          type='button'
-          onClick={getGeocodedLocation}
-        >
-          Search
-        </button>
+    <div className='results'>
+      <div className='results-main'>
+        <div className='results-text'>Search Results for '{search}'</div>
+      </div>
+      <div className='results-container container'>
+        <SearchResults {...{ searchResults }}></SearchResults>
       </div>
     </div>
   );
 }
+
+export default ResultsPage;
