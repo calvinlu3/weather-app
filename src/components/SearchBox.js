@@ -6,8 +6,10 @@ export const SearchBox = () => {
   let history = useHistory();
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    if (inputLocation.length === 0) return;
+    if (inputLocation.length === 0) {
+      e.preventDefault();
+      return;
+    }
     history.push(`/search/${inputLocation}`);
   };
 

@@ -19,9 +19,9 @@ const App = () => {
               path='/weather/location=:lat,:long'
               component={ForcastPage}
             />
+            <Footer></Footer>
           </>
         </Switch>
-        <Footer></Footer>
       </Router>
     </div>
   );

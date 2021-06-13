@@ -20,7 +20,8 @@ a {
 /* Home */
 
 .home-main {
-  padding: 125px 0;
+  padding: 200px 0;
+  height: 100vh;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./imgs/cloud.jpg');
@@ -34,7 +35,7 @@ a {
 .home-text {
   font-weight: 700;
   font-size: xx-large;
-  margin: 20px auto;
+  margin: 50px auto;
   color: white;
 }
 
