@@ -9,7 +9,7 @@
 .home-main {
   padding: 125px 0;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(201, 144, 144, 0.5)),
     url('./imgs/cloud.jpg');
 }
 
@@ -149,4 +149,15 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
+}
+
+/* Search */
+.search-form {
+  width: 100%;
+  display: flex;
+}
+
+.search-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
