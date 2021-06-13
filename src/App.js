@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './components/HomePage';
 import ForcastPage from './components/ForecastPage';
 import ResultsPage from './components/ResultsPage';
+import { Footer } from './components/Footer';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path='/search/:search' component={ResultsPage} />
         <Route path='/weather/location=:lat,:long' component={ForcastPage} />
       </Router>
+      <Footer></Footer>
     </div>
   );
 };
