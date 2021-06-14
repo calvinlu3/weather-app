@@ -15,14 +15,16 @@ const App = () => {
           <Route exact path='/' component={HomePage} />
           <>
             <Header />
-            <Route path='/search/:search' component={ResultsPage} />
-            <Route
-              path='/weather/:name/location=:lat,:long'
-              component={ForcastPage}
-            />
+            <Switch>
+              <Route path='/search/:search' component={ResultsPage} />
+              <Route
+                path='/weather/:name/location=:lat,:long'
+                component={ForcastPage}
+              />
+              <Route path='*' component={BadRoute} />
+            </Switch>
             <Footer></Footer>
           </>
-          <Route component={BadRoute} />
         </Switch>
       </Router>
     </div>
