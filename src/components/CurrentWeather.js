@@ -1,7 +1,7 @@
 import { WeatherInfoList } from './WeatherInfoList';
 import { useParseWeatherData } from '../hooks/useParseWeatherData';
 
-export function CurrentWeather({ currentData }) {
+export function CurrentWeather({ currentData, name }) {
   const [parsedWeatherData] = useParseWeatherData([currentData], [currentData]);
 
   return (
@@ -10,6 +10,7 @@ export function CurrentWeather({ currentData }) {
         <>
           <div className='col-lg-6 col-md-6 col-sm-12'>
             <h3>Current Weather</h3>
+            <div>{name}</div>
             <div>Last update: {parsedWeatherData[0].dt_full}</div>
             <div className='row' style={{ width: 'fit-content' }}>
               <div className='col-md-6 temperature'>

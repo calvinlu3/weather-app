@@ -17,7 +17,7 @@ const App = () => {
             <Header />
             <Route path='/search/:search' component={ResultsPage} />
             <Route
-              path='/weather/location=:lat,:long'
+              path='/weather/:name/location=:lat,:long'
               component={ForcastPage}
             />
             <Footer></Footer>

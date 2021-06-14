@@ -6,7 +6,9 @@ export const SearchResults = ({ searchResults }) => {
       {searchResults.map((location, idx) => {
         return (
           <div className='col-lg-4 col-md-6 col-sm-12' key={idx}>
-            <Link to={`/weather/location=${location.lat},${location.lon}`}>
+            <Link
+              to={`/weather/${location.name},${location.country}/location=${location.lat},${location.lon}`}
+            >
               <div className='result-container'>
                 <div className='result-content'>
                   <div className='result-content-text-title'>

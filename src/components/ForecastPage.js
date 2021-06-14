@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function ForcastPage() {
   const [forecastData, setForecastData] = useState({});
-  const { lat, long } = useParams();
+  const { lat, long, name } = useParams();
 
   useEffect(() => {
     axios
@@ -22,7 +22,7 @@ function ForcastPage() {
     <div className='forecast container'>
       {forecastData.current ? (
         <>
-          <CurrentWeather currentData={forecastData.current} />
+          <CurrentWeather currentData={forecastData.current} name={name} />
           <Daily daily={forecastData.daily} />
         </>
       ) : (
