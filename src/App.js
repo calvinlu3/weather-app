@@ -20,9 +20,9 @@ const App = () => {
               path='/weather/location=:lat,:long'
               component={ForcastPage}
             />
-            <Route component={BadRoute} />
             <Footer></Footer>
           </>
+          <Route component={BadRoute} />
         </Switch>
       </Router>
     </div>
