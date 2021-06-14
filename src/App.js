@@ -5,6 +5,7 @@ import ForcastPage from './components/ForecastPage';
 import ResultsPage from './components/ResultsPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import BadRoute from './components/BadRoute';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               path='/weather/location=:lat,:long'
               component={ForcastPage}
             />
+            <Route component={BadRoute} />
             <Footer></Footer>
           </>
         </Switch>

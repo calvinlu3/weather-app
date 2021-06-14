@@ -189,3 +189,27 @@ a {
   align-content: center;
   flex-direction: column;
 }
+
+/* Bad Route */
+.bad-route-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.bad-route-title {
+  font-size: 4em;
+  font-weight: 700;
+  color: red;
+  overflow-wrap: break-word;
+}
+
+.bad-route-text {
+  width: 50%;
+  margin: 20px auto;
+  font-size: 2em;
+}
+
+.icon-text {
+  vertical-align: 0.15em;
+  padding-right: 10px;
+}
