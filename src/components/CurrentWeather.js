@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { WeatherInfoList } from './WeatherInfoList';
 import { useParseWeatherData } from '../hooks/useParseWeatherData';
 

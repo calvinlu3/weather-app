@@ -15,7 +15,6 @@ function ForcastPage() {
       )
       .then((res) => {
         setForecastData(res.data);
-        console.log(res.data);
       });
   }, []);
 

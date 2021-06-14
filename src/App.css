@@ -55,6 +55,13 @@ a {
   border-bottom-right-radius: 0;
 }
 
+/* Results */
+
+.results-empty {
+  font-size: x-large;
+  font-weight: 700;
+}
+
 .results {
   padding-bottom: 4em;
 }
