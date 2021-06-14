@@ -68,7 +68,7 @@ function ResultsPage() {
           setSearchResults(isZip ? [geocodeData.data] : geocodeData.data);
       }
     );
-  }, []);
+  }, [search]);
 
   return (
     <div className='results'>

@@ -1,9 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { CurrentWeather } from './CurrentWeather';
 import { Daily } from './Daily';
 import { useCacheData } from '../hooks/useCacheData';
-import axios from 'axios';
 
 function ForcastPage() {
   const { lat, long, name } = useParams();
